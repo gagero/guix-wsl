@@ -1,3 +1,4 @@
+[![Build Guix WSL2 image](https://github.com/gagero/guix-wsl/actions/workflows/build-image.yml/badge.svg?event=release)](https://github.com/gagero/guix-wsl/actions/workflows/build-image.yml)
 #+title: Guix WSL Image
 
 Guix provides the facilities to build system images for WSL2, and
