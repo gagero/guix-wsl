@@ -2,7 +2,7 @@
 
 Guix provides the facilities to build system images for WSL2, and provides a sample system object called =wsl-os= (viewable [[https://codeberg.org/guix/guix/src/branch/master/gnu/system/images/wsl2.scm][here]]), but unfortunately, there are no pre-built images.
 
-This repo provides that sample images in the release. If you have a Linux machine that already has Guix, you're better off building yourself:
+This repo provides that sample image in the release, automatically built on the 1st of every month. If you have a Linux machine that already has Guix, you're better off building yourself:
 #+begin_src shell 
 guix system image -t wsl2 -e '(@ (gnu system images wsl2) wsl-os)'
 #+end_src
