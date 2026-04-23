@@ -25,6 +25,7 @@ jobs:
 
       - uses: PromyLOPh/guix-install-action@v1
         with:
+          pullAfterInstall: true
           path: ~/.cache/guix
           # use a key that (almost) never matches
           key: guix-cache-${{ github.sha }}
