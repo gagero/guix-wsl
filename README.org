@@ -1,7 +1,5 @@
 #+title: Guix WSL Image
 
-[![Build Guix WSL2 image](https://github.com/gagero/guix-wsl/actions/workflows/build-image.yml/badge.svg?event=release)](https://github.com/gagero/guix-wsl/actions/workflows/build-image.yml)
-
 Guix provides the facilities to build system images for WSL2, and
 provids a sample system object called =wsl-os=, but unfortunately, there
 are no pre-built images.
