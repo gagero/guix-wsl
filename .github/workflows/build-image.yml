@@ -27,8 +27,11 @@ jobs:
         id: image-builder
         run: echo "IMAGE_PATH=$(guix system image --image-type=wsl2 --expression='(@ (gnu system images wsl2) wsl-os)')" >> $GITHUB_OUTPUT
 
+      - name: Set time
+        run: echo "::set-env name=NOW::$(date +'%Y-%m')"
+      
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
           files: ${{ steps.image-builder.outputs.IMAGE_PATH }}
-          tag_name: $(date +'%Y-%m-%d')
+          tag_name: ${{ env.NOW }}
