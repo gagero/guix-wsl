@@ -21,7 +21,7 @@ jobs:
           pullAfterInstall: true
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Build the image
         id: image-builder
@@ -31,7 +31,7 @@ jobs:
         run: echo "NOW=$(date +'%Y-%m')" >> $GITHUB_ENV
       
       - name: Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: ${{ steps.image-builder.outputs.IMAGE_PATH }}
           tag_name: ${{ env.NOW }}
