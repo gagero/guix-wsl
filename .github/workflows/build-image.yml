@@ -29,7 +29,7 @@ jobs:
 
       - name: Build Docker image
         id: docker-image-builder
-        run: echo "DOCKER_IMAGE_PATH=$(guix system image --image-type=docker /etc/config.scm)" >> $GITHUB_OUTPUT
+        run: echo "DOCKER_IMAGE_PATH=$(guix system image --image-type=docker /etc/current-system.scm)" >> $GITHUB_OUTPUT
 
       - name: Set time
         run: echo "NOW=$(date +'%Y-%m')" >> $GITHUB_ENV
