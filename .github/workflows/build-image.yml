@@ -23,13 +23,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Build WSL image
-        id: wsl-image-builder
-        run: echo "WSL_IMAGE_PATH=$(guix system image --image-type=wsl2 --expression='(@ (gnu system images wsl2) wsl-os)')" >> $GITHUB_OUTPUT
-
-      - name: Build Docker image
-        id: docker-image-builder
-        run: echo "DOCKER_IMAGE_PATH=$(guix system image --image-type=docker /etc/current-system.scm)" >> $GITHUB_OUTPUT
+      - name: Build the image
+        id: image-builder
+        run: echo "IMAGE_PATH=$(guix system image --image-type=wsl2 --expression='(@ (gnu system images wsl2) wsl-os)')" >> $GITHUB_OUTPUT
 
       - name: Set time
         run: echo "NOW=$(date +'%Y-%m')" >> $GITHUB_ENV
@@ -37,7 +33,5 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v3
         with:
-          files: |
-            ${{ steps.wsl-image-builder.outputs.WSL_IMAGE_PATH }}
-            ${{ steps.docker-image-builder.outputs.DOCKER_IMAGE_PATH }}
+          files: ${{ steps.image-builder.outputs.IMAGE_PATH }}
           tag_name: ${{ env.NOW }}
